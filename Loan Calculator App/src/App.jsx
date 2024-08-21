@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Formulario from './components/Formulario';
 import Resultado from './components/Resultado';
-
+import Mensaje from './components/Mensaje';
 
 
 function App() {
@@ -11,6 +11,16 @@ function App() {
   const [plazo, setPlazo] = useState("");
   const [total, setTotal] = useState(0);
 
+  let componente;
+  if (total === 0) {
+    componente = <Mensaje />
+  } else {
+    componente = <Resultado
+    total={total}
+    cantidad={cantidad}
+    plazo={plazo}
+  />
+  }
 
   return (
     <>
@@ -26,11 +36,7 @@ function App() {
         />
       </div>
       <div className="mensaje">
-        <Resultado
-          total={total}
-          cantidad={cantidad}
-          plazo={plazo}
-        />
+        {componente}
       </div>
     </>
 
