@@ -9,7 +9,7 @@ const Resultado = ({total,cantidad,plazo}) => {
             <p>Total a pagar: ${(total.toFixed(2))} </p>
 
         </div>
-    );
+    )
 }
  
 export default Resultado
